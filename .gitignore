@@ -1,0 +1,10 @@
+# Archivos generados por Django
+__pycache__/
+*.pyc
+db.sqlite3
+
+# Directorio de archivos estáticos
+staticfiles/
+
+# Directorio de archivos media
+media/
