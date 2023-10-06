@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'api1',
 ]
 
 MIDDLEWARE = [
@@ -82,14 +83,14 @@ WSGI_APPLICATION = 'apicitylab.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'prueba',
         'USER': 'postgres',
         'PASSWORD': '12345',
-        'HOST': 'localhost',  
+        'HOST': 'localhost', #nombre del servicio si uso docker  
         'PORT': '5432',  
         'OPTIONS': {
-            'options': '-c search_path=cityprueba',
+            'options': '-c search_path=public',
         },        
     }
 }
