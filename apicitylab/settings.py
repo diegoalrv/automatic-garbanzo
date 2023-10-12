@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'api1',
 ]
 
@@ -71,26 +72,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'apicitylab.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'prueba',
         'USER': 'postgres',
         'PASSWORD': '12345',
         'HOST': 'localhost', #nombre del servicio si uso docker  
         'PORT': '5432',  
         'OPTIONS': {
-            'options': '-c search_path=public',
+            'options': '-c search_path=cityprueba',
         },        
     }
 }
@@ -136,3 +127,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+

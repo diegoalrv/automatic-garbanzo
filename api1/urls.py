@@ -1,8 +1,10 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
+from rest_framework import routers
+from .views import CatalogoViewSet
 
-urlpatterns = [
-    path('', views.pruebatempl),
-    path('ruta/<str:algo>', views.prueba)
+router = routers.DefaultRouter()
+router.register(r'api/catalogo',views.CatalogoViewSet, 'catalogo')
 
-]
+
+urlpatterns = router.urls
