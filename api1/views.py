@@ -6,22 +6,36 @@ from django.http import HttpResponse
 from rest_framework.response import Response
 
 
-class CatalogoViewSet(viewsets.ModelViewSet):
-    queryset = Catalogo2.objects.all()
-    serializer_class = CatalogoSerializer
+# class CatalogoViewSet(viewsets.ModelViewSet):
+#     queryset = Catalogo2.objects.all()
+#     serializer_class = CatalogoSerializer
 
 class TestModelView(viewsets.ModelViewSet):
     serializer_class = CatalogoSerializer
-
     def get_queryset(self):
         value = self.kwargs.get('value')  # Obtén el valor del parámetro de la URL
         queryset = Catalogo2.objects.filter(tematica__icontains=value)
         print(queryset.count())
         return queryset
         
-    
-    
-    
+class CatalogoViewSet(viewsets.ModelViewSet):
+    serializer_class = CatalogoSerializer
+
+    def get_queryset(self):
+        value = self.kwargs.get('value')  # Obtén el valor del parámetro de la URL
+        column = self.kwargs.get('column') 
+        if column == 'tematica':
+            queryset = Catalogo2.objects.filter(tematica__icontains=value)
+            return queryset
+        if column == 'nombre':
+            queryset = Catalogo2.objects.filter(nombre__icontains=value)
+            return queryset
+        if column == 'formato':
+            queryset = Catalogo2.objects.filter(formato__icontains=value)
+            return queryset
+        else:
+            return None
+        
 def catalogoByColumn(request,column,value):
     if column == 'tematica':
         objetos = Catalogo2.objects.filter(tematica__icontains=value)
