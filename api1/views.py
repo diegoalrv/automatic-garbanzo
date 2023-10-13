@@ -3,21 +3,23 @@ from .serializers import CatalogoSerializer
 from .models import Catalogo2
 
 from django.http import HttpResponse
-
+from rest_framework.response import Response
 
 
 class CatalogoViewSet(viewsets.ModelViewSet):
     queryset = Catalogo2.objects.all()
     serializer_class = CatalogoSerializer
 
-# def catalogobytematica(request,tematica):
-#     busqueda = 'da'
-#     objetos = Catalogo2.objects.filter(tematica__icontains=tematica)
-#     i = 0
-#     for obj in objetos:
-#         i += 1
-#     print(i)
-#     return HttpResponse('hola')
+class TestModelView(viewsets.ModelViewSet):
+    serializer_class = CatalogoSerializer
+
+    def get_queryset(self):
+        value = self.kwargs.get('value')  # Obtén el valor del parámetro de la URL
+        queryset = Catalogo2.objects.filter(tematica__icontains=value)
+        print(queryset.count())
+        return queryset
+        
+    
     
     
 def catalogoByColumn(request,column,value):
