@@ -14,9 +14,9 @@ class CatalogoViewSet(viewsets.ModelViewSet):
 #     queryset = Catalogo2.objects.filter(tematica__icontains=)
 
 
-def catalogobytematica(request):
+def catalogobytematica(request,tematica):
     busqueda = 'da'
-    objetos = Catalogo2.objects.filter(tematica__icontains=busqueda)
+    objetos = Catalogo2.objects.filter(tematica__icontains=tematica)
     i = 0
     for obj in objetos:
         i += 1
