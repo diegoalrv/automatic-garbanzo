@@ -14,6 +14,7 @@ urlpatterns = [
     # path('api/catalogo/<str:tematica>/', TuViewSet.as_view({'get': 'retrieve'}), name='tu-recurso-detail'),
     path('a/',views.catalogobytematica),
     path('api/catalogo/tematica/<str:tematica>', views.catalogobytematica),
+    path('api/<str:column>/<str:value>',views.catalogoByColumn),
     # path('api/catalogo/nombre/<str:tematica>', views.catalogobytematica),
     # path('api/catalogo/formato/<str:tematica>', views.catalogobytematica),
 ]
