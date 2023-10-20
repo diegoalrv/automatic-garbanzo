@@ -1,0 +1,10 @@
+{
+    "dev": {
+        "aws_region": "sa-east-1",
+        "django_settings": "apicitylab.settings",
+        "profile_name": "default",
+        "project_name": "apicitylab",
+        "runtime": "python3.11",
+        "s3_bucket": "zappa-o9ilkollq"
+    }
+}
