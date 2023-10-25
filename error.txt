@@ -1,0 +1,2 @@
+[1698261320738] [ERROR] ImproperlyConfigured: Error loading psycopg2 or psycopg module
+error con zappa

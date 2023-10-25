@@ -10,6 +10,7 @@ router = routers.DefaultRouter()
 # urlpatterns = router.urls
 
 urlpatterns = [
+    path('', views.home),
     path('api/', include(router.urls)),
     path('api/<str:column>/<str:value>',views.CatalogoViewSet.as_view({'get': 'list'})),
 

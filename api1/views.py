@@ -6,9 +6,8 @@ from django.http import HttpResponse
 from rest_framework.response import Response
 
 
-# class CatalogoViewSet(viewsets.ModelViewSet):
-#     queryset = Catalogo2.objects.all()
-#     serializer_class = CatalogoSerializer
+def home(request):
+    return HttpResponse('Bienvenido a API 1')
 
 class TestModelView(viewsets.ModelViewSet):
     serializer_class = CatalogoSerializer
