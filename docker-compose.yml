@@ -1,14 +1,14 @@
 version: "3"
 services:
-  db:
-    image: postgres:16
-    environment:
-      POSTGRES_HOST: db
-      POSTGRES_DB: new_db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 12345
-    expose:
-      - 5432:5432
+  # db:
+    # image: postgres:16
+    # environment:
+    #   POSTGRES_HOST: db
+    #   POSTGRES_DB: new_db
+    #   POSTGRES_USER: postgres
+    #   POSTGRES_PASSWORD: 12345
+    # expose:
+    #   - 5432:5432
   api:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
@@ -16,5 +16,4 @@ services:
       - .:/app #copiar todo el contenido de mi contenedor dentro de la carpeta 'code' dentro del contenedor
     ports:
       - "8000:8000"
-    depends_on:
-      - db
+    
