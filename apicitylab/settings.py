@@ -77,7 +77,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'prueba',
         'USER': 'postgres',
-        'PASSWORD': ' 8oiP3p%S3q0', # aws password 8oiP3p%S3q0
+        'PASSWORD': '8oiP3p%S3q0', # aws password 8oiP3p%S3q0
         'HOST': 'database-api.cc4pcaeqhckp.us-east-1.rds.amazonaws.com', #nombre del servicio si uso docker  
         'PORT': '5432',  
         'OPTIONS': {
